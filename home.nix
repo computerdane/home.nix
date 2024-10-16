@@ -12,6 +12,7 @@ in
       nil
       nixfmt-rfc-style
       nmap
+      openssh
       pv
       wget
     ]
