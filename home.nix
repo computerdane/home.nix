@@ -7,8 +7,13 @@ in
   home.packages =
     with pkgs;
     [
+      curl
+      netcat
       nil
       nixfmt-rfc-style
+      nmap
+      pv
+      wget
     ]
     ++ (with fishPlugins; [
       colored-man-pages
