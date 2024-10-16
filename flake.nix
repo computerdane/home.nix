@@ -9,6 +9,7 @@
       url = "github:nix-community/home-manager/release-24.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    utils.url = "github:numtide/flake-utils";
   };
 
   outputs =
@@ -16,36 +17,41 @@
       nixpkgs,
       nixpkgs-unstable,
       home-manager,
+      utils,
       ...
     }:
-    let
-      system = "aarch64-darwin";
-      pkgs = import nixpkgs {
-        inherit system;
-        config.allowUnfree = true;
-      };
-      pkgs-unstable = import nixpkgs-unstable {
-        inherit system;
-        config.allowUnfree = true;
-      };
-    in
-    {
-      homeConfigurations."dane" = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-
-        # Specify your home configuration modules here, for example,
-        # the path to your home.nix.
-        modules = [
-          ./home.nix
-          ./features/full.nix
-          ./features/typescript.nix
-        ];
-
-        # Optionally use extraSpecialArgs
-        # to pass through arguments to home.nix
-        extraSpecialArgs = {
-          inherit pkgs-unstable;
+    utils.lib.eachDefaultSystem (
+      system:
+      let
+        pkgs = import nixpkgs {
+          inherit system;
+          config.allowUnfree = true;
         };
-      };
-    };
+        pkgs-unstable = import nixpkgs-unstable {
+          inherit system;
+          config.allowUnfree = true;
+        };
+      in
+      {
+        packages = {
+          homeConfigurations."dane" = home-manager.lib.homeManagerConfiguration {
+            inherit pkgs;
+
+            # Specify your home configuration modules here, for example,
+            # the path to your home.nix.
+            modules = [
+              ./home.nix
+              ./features/full.nix
+              ./features/typescript.nix
+            ];
+
+            # Optionally use extraSpecialArgs
+            # to pass through arguments to home.nix
+            extraSpecialArgs = {
+              inherit pkgs-unstable;
+            };
+          };
+        };
+      }
+    );
 }
