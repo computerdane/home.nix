@@ -2,7 +2,7 @@
 
 let
   inherit (pkgs) stdenv;
-  hmup = pkgs.writeShellScriptBin "hmup" ''
+  hup = pkgs.writeShellScriptBin "hup" ''
     cd ~/.config/home-manager && \
       git pull && \
       home-manager switch
@@ -10,10 +10,10 @@ let
 in
 {
   home.packages =
-    with pkgs;
-    [
+    [ hup ]
+    ++ (with pkgs; [
       curl
-      hmup
+      hup
       netcat
       nil
       nixfmt-rfc-style
@@ -21,8 +21,8 @@ in
       openssh
       pv
       wget
-    ]
-    ++ (with fishPlugins; [
+    ])
+    ++ (with pkgs.fishPlugins; [
       colored-man-pages
       puffer
       tide
