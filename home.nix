@@ -2,12 +2,18 @@
 
 let
   inherit (pkgs) stdenv;
+  hmup = pkgs.writeShellScriptBin "hmup" ''
+    cd ~/.config/home-manager && \
+      git pull && \
+      home-manager switch
+  '';
 in
 {
   home.packages =
     with pkgs;
     [
       curl
+      hmup
       netcat
       nil
       nixfmt-rfc-style
