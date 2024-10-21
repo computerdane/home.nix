@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, pkgs-unstable, ... }:
 
 let
   inherit (pkgs) stdenv;
@@ -11,22 +11,25 @@ in
 {
   home.packages =
     [ hup ]
-    ++ (with pkgs; [
-      curl
-      hup
-      netcat
-      nil
-      nixfmt-rfc-style
-      nmap
-      openssh
-      pv
-      wget
-    ])
-    ++ (with pkgs.fishPlugins; [
-      colored-man-pages
-      puffer
-      tide
-    ]);
+    ++ (with pkgs-unstable; [ nixd ])
+    ++ (
+      with pkgs;
+      [
+        curl
+        netcat
+        nil
+        nixfmt-rfc-style
+        nmap
+        openssh
+        pv
+        wget
+      ]
+      ++ (with fishPlugins; [
+        colored-man-pages
+        puffer
+        tide
+      ])
+    );
 
   programs.bat.enable = true;
   programs.btop.enable = true;
@@ -64,6 +67,7 @@ in
 
   programs.helix = {
     enable = true;
+    package = pkgs-unstable.helix;
     defaultEditor = true;
     themes = {
       dracula_nobg = {
@@ -86,11 +90,16 @@ in
         true-color = true;
       };
     };
+    languages.language-server.nixd.command = "nixd";
     languages.language = [
       {
         name = "nix";
         formatter.command = "nixfmt";
         auto-format = true;
+        language-servers = [
+          "nixd"
+          "nil"
+        ];
       }
     ];
   };

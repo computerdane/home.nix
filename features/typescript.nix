@@ -21,15 +21,15 @@ let
 in
 {
   home.packages =
-    with pkgs;
-    [
-      pkgs-unstable.bun
-      nodejs_20
-    ]
-    ++ (with nodePackages; [
-      prettier
-      typescript-language-server
-    ]);
+    (with pkgs-unstable; [ bun ])
+    ++ (
+      with pkgs;
+      [ nodejs_20 ]
+      ++ (with nodePackages; [
+        prettier
+        typescript-language-server
+      ])
+    );
 
   programs.helix.languages.language = [
     (mkTsLsp { name = "typescript"; })
