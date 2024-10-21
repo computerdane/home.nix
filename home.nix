@@ -78,8 +78,8 @@ in
     settings = {
       theme = "dracula_nobg";
       editor = {
-        "line-number" = "relative";
-        "cursor-shape" = {
+        line-number = "relative";
+        cursor-shape = {
           insert = "bar";
           normal = "block";
           select = "underline";
@@ -98,7 +98,10 @@ in
         auto-format = true;
         language-servers = [
           "nixd"
-          "nil"
+          {
+            name = "nil";
+            except-features = [ "completion" ];
+          }
         ];
       }
     ];
