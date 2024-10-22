@@ -22,6 +22,7 @@ in
         nmap
         openssh
         pv
+        tree
         wget
       ]
       ++ (with fishPlugins; [
