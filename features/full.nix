@@ -5,10 +5,7 @@ let
 in
 lib.mkMerge [
   {
-    home.packages = with pkgs; [
-      dua
-      ffmpeg-full
-    ];
+    home.packages = with pkgs; [ ffmpeg-full ];
 
     programs.mpv.enable = true;
     programs.yt-dlp.enable = true;

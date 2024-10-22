@@ -16,6 +16,7 @@ in
       with pkgs;
       [
         curl
+        dua
         netcat
         nil
         nixfmt-rfc-style
