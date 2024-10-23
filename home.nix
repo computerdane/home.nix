@@ -21,7 +21,6 @@ in
         nil
         nixfmt-rfc-style
         nmap
-        openssh
         pv
         tree
         wget
@@ -107,6 +106,11 @@ in
         ];
       }
     ];
+  };
+
+  programs.ssh = {
+    enable = true;
+    matchBlocks."nf6.sh".port = 105;
   };
 
   # Use fish shell on systems with bash or zsh
