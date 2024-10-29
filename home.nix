@@ -2,15 +2,27 @@
 
 let
   inherit (pkgs) stdenv;
-  hup = pkgs.writeShellScriptBin "hup" ''
+  hm-update-pull = pkgs.writeShellScriptBin "hm-update-pull" ''
     cd ~/.config/home-manager && \
       git pull && \
       home-manager switch
   '';
+  hm-update-push = pkgs.writeShellScriptBin "hm-update-push" ''
+    cd ~/.config/home-manager && \
+      git pull && \
+      nix flake update && \
+      home-manager switch && \
+      git add . && \
+      git commit -m "[hmup-update-push] $(date -I)" && \
+      git push
+  '';
 in
 {
   home.packages =
-    [ hup ]
+    [
+      hm-update-pull
+      hm-update-push
+    ]
     ++ (with pkgs-unstable; [ nixd ])
     ++ (
       with pkgs;
