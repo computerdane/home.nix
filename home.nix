@@ -34,6 +34,7 @@ in
         nixfmt-rfc-style
         nmap
         pv
+        tldr
         tree
         wget
       ]
@@ -48,6 +49,7 @@ in
   programs.btop.enable = true;
   programs.fd.enable = true;
   programs.fzf.enable = true;
+  programs.zoxide.enable = true;
 
   programs.direnv = {
     enable = true;
