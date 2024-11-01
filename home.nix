@@ -125,6 +125,7 @@ in
   programs.ssh = {
     enable = true;
     matchBlocks."nf6.sh".port = 105;
+    matchBlocks."knightf6.com".port = 105;
   };
 
   # Use fish shell on systems with bash or zsh
