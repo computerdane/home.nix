@@ -46,10 +46,18 @@ in
     );
 
   programs.bat.enable = true;
-  programs.btop.enable = true;
   programs.fd.enable = true;
   programs.fzf.enable = true;
   programs.zoxide.enable = true;
+
+  programs.btop = {
+    enable = true;
+    settings = {
+      color_theme = "Dracula";
+      theme_background = false;
+      update_ms = 100;
+    };
+  };
 
   programs.direnv = {
     enable = true;
