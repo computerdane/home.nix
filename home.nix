@@ -37,6 +37,7 @@ in
         tldr
         tree
         wget
+        wireguard-tools
       ]
       ++ (with fishPlugins; [
         colored-man-pages
