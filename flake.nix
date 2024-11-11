@@ -42,6 +42,7 @@
             modules = [
               ./home.nix
               ./features/full.nix
+              ./features/go.nix
               ./features/typescript.nix
             ];
 
