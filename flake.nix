@@ -10,7 +10,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     utils.url = "github:numtide/flake-utils";
-    nf6.url = "github:computerdane/nf6";
+    nf6 = {
+      url = "github:computerdane/nf6";
+      inputs.utils.follows = "utils";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
