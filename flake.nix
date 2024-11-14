@@ -10,6 +10,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     utils.url = "github:numtide/flake-utils";
+    nf6.url = "github:computerdane/nf6";
   };
 
   outputs =
@@ -18,6 +19,7 @@
       nixpkgs-unstable,
       home-manager,
       utils,
+      nf6,
       ...
     }:
     utils.lib.eachDefaultSystem (
@@ -31,6 +33,7 @@
           inherit system;
           config.allowUnfree = true;
         };
+        pkgs-nf6 = nf6.packages.${system};
       in
       {
         packages = {
@@ -49,7 +52,7 @@
             # Optionally use extraSpecialArgs
             # to pass through arguments to home.nix
             extraSpecialArgs = {
-              inherit pkgs-unstable;
+              inherit pkgs-unstable pkgs-nf6;
             };
           };
         };

@@ -1,4 +1,9 @@
-{ pkgs, pkgs-unstable, ... }:
+{
+  pkgs,
+  pkgs-nf6,
+  pkgs-unstable,
+  ...
+}:
 
 let
   inherit (pkgs) stdenv;
@@ -23,6 +28,7 @@ in
       hm-update-pull
       hm-update-push
     ]
+    ++ (with pkgs-nf6; [ client-cli ])
     ++ (with pkgs-unstable; [ nixd ])
     ++ (
       with pkgs;
