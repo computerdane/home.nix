@@ -93,6 +93,7 @@ in
     enable = true;
     userName = "Dane Rieber";
     userEmail = "danerieber@gmail.com";
+    extraConfig.init.defaultBranch = "main";
   };
 
   programs.helix = {
