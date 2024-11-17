@@ -7,10 +7,7 @@ lib.mkMerge [
   {
     home.packages = with pkgs; [ ffmpeg-full ];
 
-    programs.mpv = {
-      enable = true;
-      config.volume = 50;
-    };
+    programs.mpv.enable = true;
     programs.yt-dlp.enable = true;
   }
   (lib.mkIf stdenv.isLinux {
