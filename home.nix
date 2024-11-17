@@ -37,6 +37,7 @@ in
       [
         curl
         dua
+        ffmpeg-full
         netcat
         nil
         nixfmt-rfc-style
@@ -57,6 +58,7 @@ in
   programs.bat.enable = true;
   programs.fd.enable = true;
   programs.fzf.enable = true;
+  programs.yt-dlp.enable = true;
   programs.zoxide.enable = true;
 
   programs.btop = {

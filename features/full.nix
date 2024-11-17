@@ -4,12 +4,7 @@ let
   inherit (pkgs) stdenv;
 in
 lib.mkMerge [
-  {
-    home.packages = with pkgs; [ ffmpeg-full ];
-
-    programs.mpv.enable = true;
-    programs.yt-dlp.enable = true;
-  }
+  { programs.mpv.enable = true; }
   (lib.mkIf stdenv.isLinux {
     home.packages = with pkgs; [
       mumble
