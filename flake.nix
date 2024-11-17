@@ -15,6 +15,11 @@
       inputs.utils.follows = "utils";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    bop = {
+      url = "github:computerdane/bop";
+      inputs.utils.follows = "utils";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -24,6 +29,7 @@
       home-manager,
       utils,
       nf6,
+      bop,
       ...
     }:
     utils.lib.eachDefaultSystem (
@@ -38,6 +44,7 @@
           config.allowUnfree = true;
         };
         pkgs-nf6 = nf6.packages.${system};
+        pkgs-bop = bop.packages.${system};
       in
       {
         packages = {
@@ -56,7 +63,7 @@
             # Optionally use extraSpecialArgs
             # to pass through arguments to home.nix
             extraSpecialArgs = {
-              inherit pkgs-unstable pkgs-nf6;
+              inherit pkgs-unstable pkgs-nf6 pkgs-bop;
             };
           };
         };

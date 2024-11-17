@@ -1,5 +1,28 @@
 {
   "nodes": {
+    "bop": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "utils": [
+          "utils"
+        ]
+      },
+      "locked": {
+        "lastModified": 1731827587,
+        "narHash": "sha256-iOBV5IhvjZbdetrL4sOjrRnZTtHIFk/UGENioSrQRY4=",
+        "owner": "computerdane",
+        "repo": "bop",
+        "rev": "992c79c2817100a0bf1f02c918a8822ea5456969",
+        "type": "github"
+      },
+      "original": {
+        "owner": "computerdane",
+        "repo": "bop",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -62,11 +85,11 @@
     },
     "nixpkgs-unstable": {
       "locked": {
-        "lastModified": 1731531548,
-        "narHash": "sha256-sz8/v17enkYmfpgeeuyzniGJU0QQBfmAjlemAUYhfy8=",
+        "lastModified": 1731763621,
+        "narHash": "sha256-ddcX4lQL0X05AYkrkV2LMFgGdRvgap7Ho8kgon3iWZk=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "24f0d4acd634792badd6470134c387a3b039dace",
+        "rev": "c69a9bffbecde46b4b939465422ddc59493d3e4d",
         "type": "github"
       },
       "original": {
@@ -78,6 +101,7 @@
     },
     "root": {
       "inputs": {
+        "bop": "bop",
         "home-manager": "home-manager",
         "nf6": "nf6",
         "nixpkgs": "nixpkgs",

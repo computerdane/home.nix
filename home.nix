@@ -2,6 +2,7 @@
   pkgs,
   pkgs-nf6,
   pkgs-unstable,
+  pkgs-bop,
   ...
 }:
 
@@ -29,6 +30,7 @@ in
       hm-update-push
     ]
     ++ (with pkgs-nf6; [ client-cli ])
+    ++ (with pkgs-bop; [ client-cli ])
     ++ (with pkgs-unstable; [ nixd ])
     ++ (
       with pkgs;
