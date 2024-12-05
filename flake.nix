@@ -10,11 +10,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     utils.url = "github:numtide/flake-utils";
-    nf6 = {
-      url = "github:computerdane/nf6";
-      inputs.utils.follows = "utils";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     bop = {
       url = "github:computerdane/bop";
       inputs.utils.follows = "utils";
@@ -28,7 +23,6 @@
       nixpkgs-unstable,
       home-manager,
       utils,
-      nf6,
       bop,
       ...
     }:
@@ -43,7 +37,6 @@
           inherit system;
           config.allowUnfree = true;
         };
-        pkgs-nf6 = nf6.packages.${system};
         pkgs-bop = bop.packages.${system};
       in
       {
@@ -63,7 +56,7 @@
             # Optionally use extraSpecialArgs
             # to pass through arguments to home.nix
             extraSpecialArgs = {
-              inherit pkgs-unstable pkgs-nf6 pkgs-bop;
+              inherit pkgs-unstable pkgs-bop;
             };
           };
         };

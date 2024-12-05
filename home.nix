@@ -1,6 +1,5 @@
 {
   pkgs,
-  pkgs-nf6,
   pkgs-unstable,
   pkgs-bop,
   ...
@@ -29,7 +28,6 @@ in
       hm-update-pull
       hm-update-push
     ]
-    ++ (with pkgs-nf6; [ client-cli ])
     ++ (with pkgs-bop; [ client-cli ])
     ++ (with pkgs-unstable; [ nixd ])
     ++ (
@@ -45,8 +43,10 @@ in
         pv
         tldr
         tree
+        unzip
         wget
         wireguard-tools
+        zip
       ]
       ++ (with fishPlugins; [
         colored-man-pages

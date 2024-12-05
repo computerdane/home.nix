@@ -44,29 +44,6 @@
         "type": "github"
       }
     },
-    "nf6": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ],
-        "utils": [
-          "utils"
-        ]
-      },
-      "locked": {
-        "lastModified": 1731971479,
-        "narHash": "sha256-Abw3LU3YF2Mvw0l8bg6dJDPfeAfVHZAeWGYY8u4gwco=",
-        "owner": "computerdane",
-        "repo": "nf6",
-        "rev": "fc107b02ea6060bb97ba550e57c35764c62d974b",
-        "type": "github"
-      },
-      "original": {
-        "owner": "computerdane",
-        "repo": "nf6",
-        "type": "github"
-      }
-    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1731797254,
@@ -103,7 +80,6 @@
       "inputs": {
         "bop": "bop",
         "home-manager": "home-manager",
-        "nf6": "nf6",
         "nixpkgs": "nixpkgs",
         "nixpkgs-unstable": "nixpkgs-unstable",
         "utils": "utils"
