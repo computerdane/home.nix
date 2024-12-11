@@ -2,7 +2,7 @@
 
 {
   home.packages = with pkgs; [
-    buf-language-server
+    buf
     go
     gopls
     protobuf
