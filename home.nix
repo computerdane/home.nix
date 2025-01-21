@@ -41,6 +41,7 @@ in
         nixfmt-rfc-style
         nmap
         pv
+        ranger
         tldr
         tree
         unzip
