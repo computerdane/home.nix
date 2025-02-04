@@ -7,7 +7,6 @@ lib.mkMerge [
   { programs.mpv.enable = true; }
   (lib.mkIf stdenv.isLinux {
     home.packages = with pkgs; [
-      ghostty
       mumble
       prismlauncher
       signal-desktop

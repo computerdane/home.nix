@@ -56,7 +56,8 @@ in
         puffer
         tide
       ])
-    );
+    )
+    ++ (if stdenv.isLinux then with pkgs; [ ghostty ] else [ ]);
 
   programs.bat.enable = true;
   programs.fd.enable = true;
