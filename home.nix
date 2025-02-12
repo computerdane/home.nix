@@ -38,7 +38,6 @@ in
         jq
         netcat
         nil
-        nix
         nixfmt-rfc-style
         nmap
         pv
@@ -176,6 +175,12 @@ in
     matchBlocks."nf6.sh".port = 105;
     matchBlocks."knightf6.com".port = 105;
   };
+
+  home.file.".config/ghostty/config".text = ''
+    theme = dracula
+    background-opacity = 0.9
+    maximize = true
+  '';
 
   # Use fish shell on systems with bash or zsh
   home.file.".profile".text = "fish";
