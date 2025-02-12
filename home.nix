@@ -35,6 +35,7 @@ in
         curl
         dua
         ffmpeg-full
+        gitui
         jq
         netcat
         nil
