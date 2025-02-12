@@ -178,7 +178,7 @@ in
   };
 
   home.file.".config/ghostty/config".text = ''
-    theme = dracula
+    theme = Dracula
     background-opacity = 0.9
     maximize = true
   '';
