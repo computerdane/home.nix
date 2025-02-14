@@ -183,6 +183,10 @@ in
     maximize = true
   '';
 
+  home.file.".config/shell_gpt/.sgptrc".text = ''
+    DEFAULT_MODEL=gpt-4o
+  '';
+
   # Use fish shell on systems with bash or zsh
   home.file.".profile".text = "fish";
   home.file.".zshrc".text = "fish";
