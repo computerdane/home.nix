@@ -1,4 +1,5 @@
 {
+  config,
   lib,
   pkgs,
   pkgs-unstable,
@@ -183,9 +184,18 @@ in
     maximize = true
   '';
 
-  home.file.".config/shell_gpt/.sgptrc".text = ''
-    DEFAULT_MODEL=gpt-4o
-  '';
+  # Taken from https://github.com/nix-community/home-manager/issues/3090#issuecomment-2010891733
+  # Creates a file with specific permissions
+  home.file.".config/shell_gpt/.sgptrc_init" = {
+    text = ''
+      DEFAULT_MODEL=gpt-4o
+    '';
+    onChange = ''
+      rm -f ${config.home.homeDirectory}/.config/shell_gpt/.sgptrc
+      cp ${config.home.homeDirectory}/.config/shell_gpt/.sgptrc_init ${config.home.homeDirectory}/.config/shell_gpt/.sgptrc
+      chmod a+rw ${config.home.homeDirectory}/.config/shell_gpt/.sgptrc
+    '';
+  };
 
   # Use fish shell on systems with bash or zsh
   home.file.".profile".text = "fish";
