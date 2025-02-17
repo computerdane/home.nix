@@ -33,6 +33,7 @@ in
     ++ (
       with pkgs;
       [
+        aria2
         curl
         dua
         ffmpeg-full
