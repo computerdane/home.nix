@@ -154,6 +154,7 @@ in
         bufferline = "always";
         soft-wrap.enable = true;
         true-color = true;
+        rulers = [ 80 ];
       };
     };
     languages.language-server.nixd.command = "nixd";
