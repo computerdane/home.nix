@@ -10,6 +10,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     utils.url = "github:numtide/flake-utils";
+    oneos = {
+      url = "github:computerdane/1os";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs-unstable.follows = "nixpkgs-unstable";
+      inputs.utils.follows = "utils";
+    };
   };
 
   outputs =
@@ -18,6 +24,7 @@
       nixpkgs-unstable,
       home-manager,
       utils,
+      oneos,
       ...
     }:
     utils.lib.eachDefaultSystem (
@@ -31,6 +38,7 @@
           inherit system;
           config.allowUnfree = true;
         };
+        pkgs-1os = oneos.packages.${system};
       in
       {
         packages = {
@@ -49,7 +57,7 @@
             # Optionally use extraSpecialArgs
             # to pass through arguments to home.nix
             extraSpecialArgs = {
-              inherit pkgs-unstable;
+              inherit pkgs-unstable pkgs-1os;
             };
           };
         };

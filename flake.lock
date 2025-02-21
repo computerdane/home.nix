@@ -53,12 +53,61 @@
         "type": "github"
       }
     },
+    "oneos": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "nixpkgs-unstable": [
+          "nixpkgs-unstable"
+        ],
+        "sops-nix": "sops-nix",
+        "utils": [
+          "utils"
+        ]
+      },
+      "locked": {
+        "lastModified": 1740102595,
+        "narHash": "sha256-AhMZzrSFXRoFaiwJC5WZ6rwOEAYjICVW+TcSTgClh6c=",
+        "owner": "computerdane",
+        "repo": "1os",
+        "rev": "fa969f2bb65e6d800e20114da98142c91a7f762b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "computerdane",
+        "repo": "1os",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
         "nixpkgs-unstable": "nixpkgs-unstable",
+        "oneos": "oneos",
         "utils": "utils"
+      }
+    },
+    "sops-nix": {
+      "inputs": {
+        "nixpkgs": [
+          "oneos",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1739262228,
+        "narHash": "sha256-7JAGezJ0Dn5qIyA2+T4Dt/xQgAbhCglh6lzCekTVMeU=",
+        "owner": "Mic92",
+        "repo": "sops-nix",
+        "rev": "07af005bb7d60c7f118d9d9f5530485da5d1e975",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Mic92",
+        "repo": "sops-nix",
+        "type": "github"
       }
     },
     "systems": {

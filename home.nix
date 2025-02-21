@@ -3,6 +3,7 @@
   lib,
   pkgs,
   pkgs-unstable,
+  pkgs-1os,
   ...
 }:
 
@@ -29,6 +30,7 @@ in
       hm-update-pull
       hm-update-push
     ]
+    ++ (with pkgs-1os; [ mc-quick ])
     ++ (with pkgs-unstable; [ nixd ])
     ++ (
       with pkgs;
