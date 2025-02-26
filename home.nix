@@ -123,6 +123,7 @@ in
       (lib.mkIf stdenv.isLinux {
         logs = "journalctl --no-hostname -aeu";
         flogs = "journalctl --no-hostname -afu";
+        vpn = "sudo ip netns exec pvpn";
       })
     ];
   };
