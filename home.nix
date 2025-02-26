@@ -97,6 +97,9 @@ in
     shellInit = lib.mkMerge [
       ''
         set fish_greeting
+        if test -e ~/.openai-api-key
+          export OPENAI_API_KEY=$(cat ~/.openai-api-key)
+        end
       ''
       (lib.mkIf stdenv.isLinux (
         lib.concatStringsSep "\n" (
@@ -116,13 +119,13 @@ in
       {
         bop = "nix run github:computerdane/bop-bun --";
         cat = "bat";
-        gpt = "OPENAI_API_KEY=$(cat ~/.openai-api-key) sgpt";
+        gpt = "sgpt";
         my-tide-configure = "tide configure --auto --style=Lean --prompt_colors='True color' --show_time='24-hour format' --lean_prompt_height='Two lines' --prompt_connection=Dotted --prompt_connection_andor_frame_color=Light --prompt_spacing=Sparse --icons='Few icons' --transient=No";
-        rivals-kill-switch = "pkill -9 Xwayland && XAUTHORITY=/run/user/1000/xauth* DISPLAY=:0 steam steam://rungameid/2767030";
       }
       (lib.mkIf stdenv.isLinux {
         logs = "journalctl --no-hostname -aeu";
         flogs = "journalctl --no-hostname -afu";
+        rivals-kill-switch = "pkill -9 Xwayland && XAUTHORITY=/run/user/1000/xauth* DISPLAY=:0 steam steam://rungameid/2767030";
         vpn = "sudo ip netns exec pvpn";
       })
     ];
