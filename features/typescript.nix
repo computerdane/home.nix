@@ -24,7 +24,7 @@ in
     (with pkgs-unstable; [ bun ])
     ++ (
       with pkgs;
-      [ nodejs_20 ]
+      [ nodejs_22 ]
       ++ (with nodePackages; [
         prettier
         typescript-language-server
