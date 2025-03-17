@@ -9,28 +9,10 @@
 
 let
   inherit (pkgs) stdenv;
-  hm-update-pull = pkgs.writeShellScriptBin "hm-update-pull" ''
-    cd ~/.config/home-manager && \
-      git pull && \
-      home-manager switch
-  '';
-  hm-update-push = pkgs.writeShellScriptBin "hm-update-push" ''
-    cd ~/.config/home-manager && \
-      git pull && \
-      nix flake update && \
-      home-manager switch && \
-      git add . && \
-      git commit -m "[hmup-update-push] $(date -I)" && \
-      git push
-  '';
 in
 {
   home.packages =
-    [
-      hm-update-pull
-      hm-update-push
-    ]
-    ++ (with pkgs-1os; [
+    (with pkgs-1os; [
       hll-arty-calc
       mc-quick
     ])
