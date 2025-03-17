@@ -30,7 +30,10 @@ in
       hm-update-pull
       hm-update-push
     ]
-    ++ (with pkgs-1os; [ mc-quick ])
+    ++ (with pkgs-1os; [
+      hll-arty-calc
+      mc-quick
+    ])
     ++ (with pkgs-unstable; [ nixd ])
     ++ (
       with pkgs;
