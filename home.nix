@@ -28,6 +28,7 @@ in
         jq
         netcat
         nil
+        nix
         nixfmt-rfc-style
         nmap
         pv
