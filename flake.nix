@@ -55,8 +55,10 @@
               plasma-manager.homeManagerModules.plasma-manager
 
               ./home.nix
+
               ./features/full.nix
               ./features/go.nix
+              ./features/python.nix
               ./features/typescript.nix
 
               # ./features/kde.nix
