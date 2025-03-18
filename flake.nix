@@ -16,6 +16,11 @@
       inputs.nixpkgs-unstable.follows = "nixpkgs-unstable";
       inputs.utils.follows = "utils";
     };
+    plasma-manager = {
+      url = "github:nix-community/plasma-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
+    };
   };
 
   outputs =
@@ -25,6 +30,7 @@
       home-manager,
       utils,
       oneos,
+      plasma-manager,
       ...
     }:
     utils.lib.eachDefaultSystem (
@@ -45,17 +51,17 @@
           homeConfigurations."dane" = home-manager.lib.homeManagerConfiguration {
             inherit pkgs;
 
-            # Specify your home configuration modules here, for example,
-            # the path to your home.nix.
             modules = [
+              plasma-manager.homeManagerModules.plasma-manager
+
               ./home.nix
               ./features/full.nix
               ./features/go.nix
               ./features/typescript.nix
+
+              # ./features/kde.nix
             ];
 
-            # Optionally use extraSpecialArgs
-            # to pass through arguments to home.nix
             extraSpecialArgs = {
               inherit pkgs-unstable pkgs-1os;
             };
