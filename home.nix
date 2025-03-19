@@ -53,6 +53,7 @@ in
   programs.bat.enable = true;
   programs.fd.enable = true;
   programs.fzf.enable = true;
+  programs.nix-index.enable = true;
   programs.tmux.enable = true;
   programs.yt-dlp.enable = true;
   programs.zoxide.enable = true;
